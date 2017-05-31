@@ -1,0 +1,23 @@
+.swiper-container img {
+    width: 100%;
+}
+
+.row .icon {
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.row .movie {
+    width: 50%;
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+div.carousel-inner div{
+    height: 160px;
+}

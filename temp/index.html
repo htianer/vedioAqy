@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>iqiyi开发大赛H5 demo</title>
+    <link rel="stylesheet" href="stylesheet/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheet/swiper.min.css">
+    <link rel="stylesheet" href="stylesheet/app.css">
+    <script type="text/javascript" src="../javascript/vue.js"></script>
+    <script type="text/javascript" src="../javascript/vue-router.js"></script>
+    <script type="text/javascript" src="../javascript/vuex.js"></script>
+    <script type="text/javascript" src="../javascript/swiper.js"></script>
+    <!--<script type="text/javascript" src="javascript/app.js"></script>-->
+    <script type="text/javascript" src="../javascript/app4es5.js"></script>
+</head>
+<body onload="start()">
+<div id="app" class="container-fluid">
+    <div class="row">
+        <carousel></carousel>
+    </div>
+    <div class="row">
+        <navigator></navigator>
+    </div>
+    <router-view></router-view>
+</div>
+<script id="carousel" type="x-template">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <template v-for="item in items">
+                <div class="swiper-slide"><img :src="item.img"></div>
+            </template>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</script>
+<script id="navigator" type="x-template">
+    <ul class="nav nav-tabs">
+        <template v-for="item in items">
+            <router-link tag="li" :to="item.name"><a>{{ item.name }}</a></router-link>
+        </template>
+    </ul>
+</script>
+<script id="list" type="x-template">
+    <section>
+        <template v-for="item in items">
+            <div class="row">
+                <div class="icon"><img :src="item.img"></div>
+                <div class="movie">
+                    <div>片名：{{ item.title }}</div>
+                    <div>评分：{{ item.sns_score }}</div>
+                    <div>播放次数：{{ item.play_count_text }}</div>
+                    <div>上映时间：{{ item.date_format }}</div>
+                    <br><br>
+                    <div>
+                        <button type="button" class="btn btn-success" :a_id="item.a_id" :tv_id="item.tv_id"
+                                v-on:click="launch">立即观看
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </section>
+</script>
+</body>
+</html>
